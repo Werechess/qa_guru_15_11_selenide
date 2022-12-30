@@ -28,18 +28,18 @@ class HoverAndActionsTest {
     void shouldSwitchRectanglesTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
 
-        SelenideElement right = $("#column-a");
-        SelenideElement left = $("#column-b");
+        SelenideElement left = $("#column-a");
+        SelenideElement right = $("#column-b");
 
-        right.shouldHave(text("A"));
-        left.shouldHave(text("B"));
+        left.shouldHave(text("A"));
+        right.shouldHave(text("B"));
 
 //        not working
-//        Selenide.actions().dragAndDrop(right,left);
+//        Selenide.actions().dragAndDrop(left,right);
 
-        right.dragAndDropTo(left);
+        left.dragAndDropTo(right);
 
-        right.shouldHave(text("B"));
-        left.shouldHave(text("A"));
+        left.shouldHave(text("B"));
+        right.shouldHave(text("A"));
     }
 }
